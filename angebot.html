@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Traumasensible Begleitung</title>
+  <style>
+    :root {
+      --bg-color: #fcfbf9;
+      --surface-color: #ffffff;
+      --primary-color: #5b7065;
+      --primary-hover: #47584f;
+      --text-main: #2d3748;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
+      --accent-soft: #f4f6f4;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text-main);
+      background-color: var(--bg-color);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Kopfzeile */
+    header {
+      background: var(--surface-color);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    nav a {
+      margin-left: 1.25rem;
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--primary-color);
+    }
+
+    /* Sektionen allgemein */
+    section {
+      padding: 4rem 0;
+    }
+
+    section:nth-child(even) {
+      background-color: var(--accent-soft);
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary-color);
+    }
+
+    /* 1. Startbereich */
+    .hero {
+      padding: 4.5rem 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 2.2rem;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+
+    .hero-text p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: #fff;
+      padding: 0.8rem 1.6rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: var(--primary-hover);
+    }
+
+    .btn-whatsapp {
+      background-color: #25d366;
+      margin-right: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .btn-whatsapp:hover {
+      background-color: #20ba5a;
+    }
+
+    .hero-image {
+      display: flex;
+      justify-content: center;
+    }
+
+    .img-oval {
+      width: 240px;
+      height: 320px;
+      border-radius: 50%;
+      object-fit: cover;
+      background-color: #e5e7eb;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+
+    /* 2. Über mich */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .img-natural {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 12px;
+      object-fit: cover;
+      background-color: #e5e7eb;
+    }
+
+    /* 4. Aktuell / Flyer */
+    .flyer-card {
+      background: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .flyer-preview {
+      width: 100%;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    /* 5. Kontakt */
+    .contact-form {
+      display: grid;
+      gap: 1rem;
+      max-width: 500px;
+      margin-top: 1.5rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      font-family: inherit;
+    }
+
+    /* 6. Fußzeile */
+    footer {
+      background-color: #1e293b;
+      color: #94a3b8;
+      padding: 2.5rem 0;
+      font-size: 0.85rem;
+      line-height: 1.7;
+    }
+
+    .footer-links a {
+      color: #cbd5e1;
+      text-decoration: none;
+      margin-right: 1.5rem;
+    }
+
+    .disclaimer {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #334155;
+    }
+
+    @media (max-width: 768px) {
+      .hero-grid, .about-grid, .flyer-card {
+        grid-template-columns: 1fr;
+      }
+      .hero-image {
+        order: -1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Kopfzeile -->
+  <header>
+    <div class="container nav-wrapper">
+      <a href="#" class="logo">Praxis / Begleitung</a>
+      <nav>
+        <a href="#start">Start</a>
+        <a href="#ueber-mich">Über mich</a>
+        <a href="#angebot">Begleitung</a>
+        <a href="#aktuell">Aktuell</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 1. Startbereich -->
+  <section class="hero" id="start">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <h1>Ein geschützter Raum für deinen persönlichen Weg</h1>
+        <p>Traumasensible Begleitung mit Ruhe, Respekt und in deinem eigenen Tempo.</p>
+        <a href="#kontakt" class="btn">Unverbindlich kennenlernen ↓</a>
+      </div>
+      <div class="hero-image">
+        <img src="portrait-oval.jpg" alt="Porträt" class="img-oval">
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Über mich -->
+  <section id="ueber-mich">
+    <div class="container about-grid">
+      <img src="portrait-natuerlich.jpg" alt="Über mich Foto" class="img-natural">
+      <div>
+        <h2>Über mich</h2>
+        <p>Hier steht dein persönlicher und biografischer Text. Erzähle kurz über deinen Hintergrund, deine Haltung und was dich dazu bewegt hat, Menschen auf ihrem Weg zu begleiten.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Mein Angebot -->
+  <section id="angebot">
+    <div class="container">
+      <h2>Mein Angebot</h2>
+      <p style="margin-bottom: 1rem;">Erklärung der traumaspezifischen Begleitung, der Methoden und des Ablaufs einer typischen Sitzung.</p>
+      <div style="background: #fff; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary-color);">
+        <strong>Transparenter Ausbildungshinweis:</strong> Information zu deinen Qualifikationen, Zertifikaten und aktuellen Weiterbildungen.
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Aktuell / Flyer -->
+  <section id="aktuell">
+    <div class="container">
+      <h2>Aktuelles & Info-Flyer</h2>
+      <div class="flyer-card">
+        <img src="flyer-vorschau.jpg" alt="Flyer Vorschau" class="flyer-preview">
+        <div>
+          <h3>Flyer & Einladung</h3>
+          <p style="margin: 0.5rem 0 1.25rem 0;">Hier findest du alle kompakten Details und Termine übersichtlich zusammengefasst.</p>
+          <a href="flyer.pdf" class="btn" download>Flyer als PDF herunterladen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Kontakt -->
+  <section id="kontakt">
+    <div class="container">
+      <h2>Kontakt</h2>
+      <p>Melde dich für ein unverbindliches Erstgespräch:</p>
+      
+      <div style="margin: 1.5rem 0;">
+        <a href="https://wa.me/41000000000" class="btn btn-whatsapp" target="_blank">WhatsApp Nachricht</a>
+        <a href="tel:+41000000000" class="btn">Telefon: +41 00 000 00 00</a>
+      </div>
+
+      <form class="contact-form" action="#" method="post">
+        <input type="text" placeholder="Dein Name" required>
+        <input type="email" placeholder="Deine E-Mail-Adresse" required>
+        <textarea rows="4" placeholder="Deine Nachricht an mich..." required></textarea>
+        <button type="submit" class="btn" style="border:none; cursor:pointer;">Nachricht absenden</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- 6. Fußzeile -->
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="#impressum">Impressum</a>
+        <a href="#datenschutz">Datenschutz</a>
+      </div>
+      <div class="disclaimer">
+        <strong>Wichtiger Hinweis:</strong> Die angebotene Begleitung versteht sich als ressourcenorientierte Beratung und Lebensbegleitung. Sie ersetzt keine ärztliche oder psychotherapeutische Behandlung/Diagnostik im Sinne einer heilkundlichen Psychotherapie.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
