@@ -1,2 +1,2 @@
 # trauma-beratung
-Website for Traum-Neratung
+Website for Trauma-Beratung
