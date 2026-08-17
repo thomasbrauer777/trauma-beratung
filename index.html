@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trauma Beratung – Severine Brauer</title>
+  <title>Trauma Beratung – Severine Bräuer</title>
   <style>
     * {
       margin: 0;
@@ -58,20 +58,13 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 6px;
-    }
-
-    .name-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: #2c3e50;
-      margin-bottom: 2px;
+      gap: 10px;
     }
 
     .info-text {
       font-size: 0.95rem;
       color: #666666;
-      margin-bottom: 4px;
+      margin-bottom: 2px;
     }
 
     /* Klickbare E-Mail Adresse */
@@ -92,28 +85,56 @@
       background-color: rgba(0, 102, 204, 0.08);
       text-decoration: underline;
     }
+
+    /* WhatsApp Link / Button */
+    .whatsapp-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #25D366;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+      transition: background-color 0.2s ease, transform 0.2s ease;
+      margin-top: 4px;
+    }
+
+    .whatsapp-link:hover {
+      background-color: #20ba59;
+      transform: translateY(-1px);
+    }
   </style>
 </head>
 <body>
 
   <div class="wrapper">
-    <!-- 
-      Klick aufs Bild -> WhatsApp
-      Ersetze '41XXXXXXXXX' mit Severines Handynummer (z. B. 41791234567)
-    -->
+    <!-- Klick aufs Bild -> WhatsApp -->
     <a href="https://wa.me/41791014280?text=Hallo%20Severine,%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Beratung." 
        target="_blank" 
        rel="noopener noreferrer" 
        class="image-link" 
        title="Per WhatsApp kontaktieren">
-      <img src="PHOTO-2026-08-16-20-45-16.jpg" alt="Trauma Beratung – Severine Brauer">
+      <img src="PHOTO-2026-08-16-20-45-16.jpg" alt="Trauma Beratung – Severine Bräuer">
     </a>
 
     <!-- Bereich unter dem Bild -->
     <div class="contact-container">
-        <div class="info-text">Für Terminanfragen und Erstgespräche erreichen Sie mich gerne per Whatsapp oder E-Mail:</div>
+      <div class="info-text">Für Terminanfragen und Erstgespräche erreichen Sie mich gerne per WhatsApp oder E-Mail:</div>
+
       <a href="mailto:praxis@trauma-beratung.ch" class="mail-link" title="E-Mail schreiben">
         praxis@trauma-beratung.ch
+      </a>
+
+      <a href="https://wa.me/41791014280?text=Hallo%20Severine,%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Beratung." 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         class="whatsapp-link" 
+         title="Per WhatsApp schreiben">
+        WhatsApp: 079 101 42 80
       </a>
     </div>
   </div>
