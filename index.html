@@ -16,33 +16,86 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #f7f9fa; /* Dezenter neutraler Hintergrund */
+      background-color: #f7f9fa;
       padding: 20px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
-    .image-container {
+    .wrapper {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
+      text-align: center;
       max-width: 100%;
-      max-height: 100vh;
+    }
+
+    /* Klickbares Bild zu WhatsApp */
+    .image-link {
+      display: inline-block;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .image-link:hover {
+      transform: scale(1.01);
     }
 
     img {
       max-width: 100%;
-      max-height: 90vh; /* Verhindert Scrollbalken auf Desktop-Bildschirmen */
+      max-height: 80vh;
       height: auto;
       object-fit: contain;
-      border-radius: 8px; /* Leicht abgerundete Ecken (optional) */
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Sanfter Schatten für mehr Tiefe */
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      display: block;
+    }
+
+    .contact-container {
+      margin-top: 20px;
+    }
+
+    /* Klickbare E-Mail Adresse */
+    .mail-link {
+      font-size: 1.15rem;
+      color: #2c3e50;
+      text-decoration: none;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+
+    .mail-link:hover {
+      color: #0066cc;
+      background-color: rgba(0, 102, 204, 0.06);
     }
   </style>
 </head>
 <body>
 
-  <div class="image-container">
-    <!-- Ersetze 'foto.jpg' durch den genauen Dateinamen deines Bildes im GitHub-Repository -->
-    <img src="PHOTO-2026-08-16-20-45-16.jpg" alt="Trauma Beratung Severine">
+  <div class="wrapper">
+    <!-- 
+      Klick aufs Bild -> WhatsApp
+      Ersetze '41XXXXXXXXX' mit Severines Handynummer im internationalen Format 
+      (ohne Plus und ohne Leerzeichen, z. B. 41791234567 für 079 123 45 67)
+    -->
+    <a href="https://wa.me/41XXXXXXXXX?text=Hallo%20Severine,%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Beratung." 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="image-link" 
+       title="Per WhatsApp schreiben">
+      <img src="foto.jpg" alt="Trauma Beratung Severine">
+    </a>
+
+    <!-- Text unter dem Bild -> E-Mail -->
+    <div class="contact-container">
+      <a href="mailto:praxis@trauma-beratung.ch" class="mail-link" title="E-Mail schreiben">
+        praxis@trauma-beratung.ch
+      </a>
+    </div>
   </div>
 
 </body>
