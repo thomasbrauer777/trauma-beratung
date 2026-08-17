@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trauma Beratung – Severine Bräuer</title>
+  
+  <!-- Elegante Webfonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
   <style>
     * {
       margin: 0;
@@ -13,130 +19,222 @@
 
     body {
       min-height: 100vh;
+      background-color: #faf9f6; /* Warmer, natürlicher Hintergrund */
+      color: #383838;
+      font-family: 'Lora', Georgia, serif;
+      line-height: 1.8;
+      padding: 40px 20px;
       display: flex;
       justify-content: center;
-      align-items: center;
-      background-color: #f7f9fa;
-      padding: 24px 16px;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color: #333333;
     }
 
-    .wrapper {
+    .container {
+      max-width: 680px;
+      width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      text-align: center;
-      max-width: 100%;
     }
 
-    /* Klickbares Bild zu WhatsApp */
+    /* Bildbereich */
     .image-link {
-      display: inline-block;
+      display: block;
+      margin-bottom: 36px;
       text-decoration: none;
+      transition: transform 0.25s ease, opacity 0.2s ease;
       cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      border-radius: 8px;
     }
 
     .image-link:hover {
-      transform: scale(1.01);
+      transform: scale(1.008);
+      opacity: 0.96;
     }
 
     img {
       max-width: 100%;
-      max-height: 75vh;
+      max-height: 70vh;
       height: auto;
       object-fit: contain;
-      border-radius: 8px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border-radius: 6px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.07);
       display: block;
     }
 
-    .contact-container {
-      margin-top: 24px;
+    /* Textbereich */
+    .intro-headline {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.85rem;
+      font-weight: 600;
+      color: #2b2b2b;
+      text-align: center;
+      margin-bottom: 24px;
+      line-height: 1.35;
+    }
+
+    .content-text {
+      font-size: 1.05rem;
+      text-align: left;
+    }
+
+    .content-text p {
+      margin-bottom: 20px;
+    }
+
+    .closing {
+      margin-top: 28px;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.35rem;
+      font-style: italic;
+      color: #2b2b2b;
+    }
+
+    .divider {
+      width: 60px;
+      height: 1px;
+      background-color: #d1cbc4;
+      margin: 36px auto;
+    }
+
+    /* Kontaktbereich */
+    .contact-section {
+      width: 100%;
+      text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 10px;
+      gap: 14px;
     }
 
-    .info-text {
-      font-size: 0.95rem;
-      color: #666666;
-      margin-bottom: 2px;
+    .contact-title {
+      font-size: 1rem;
+      color: #636363;
+      font-style: italic;
     }
 
-    /* Klickbare E-Mail Adresse */
-    .mail-link {
-      font-size: 1.1rem;
-      color: #0066cc;
-      text-decoration: none;
-      font-weight: 500;
-      letter-spacing: 0.3px;
-      padding: 6px 12px;
-      border-radius: 6px;
-      transition: all 0.2s ease;
-      display: inline-block;
+    .action-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 6px;
     }
 
-    .mail-link:hover {
-      color: #004499;
-      background-color: rgba(0, 102, 204, 0.08);
-      text-decoration: underline;
-    }
-
-    /* WhatsApp Link / Button */
-    .whatsapp-link {
+    .btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background-color: #25D366;
-      color: #ffffff;
+      justify-content: center;
       text-decoration: none;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       font-size: 0.95rem;
-      font-weight: 600;
-      padding: 8px 18px;
-      border-radius: 20px;
-      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
-      transition: background-color 0.2s ease, transform 0.2s ease;
-      margin-top: 4px;
+      font-weight: 500;
+      padding: 10px 22px;
+      border-radius: 30px;
+      transition: all 0.2s ease;
     }
 
-    .whatsapp-link:hover {
+    .btn-mail {
+      background-color: #ffffff;
+      color: #3b5066;
+      border: 1px solid #c9d2db;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    }
+
+    .btn-mail:hover {
+      background-color: #f0f4f8;
+      border-color: #a8b8c8;
+      color: #1a2f44;
+    }
+
+    .btn-whatsapp {
+      background-color: #25D366;
+      color: #ffffff;
+      box-shadow: 0 3px 10px rgba(37, 211, 102, 0.25);
+    }
+
+    .btn-whatsapp:hover {
       background-color: #20ba59;
       transform: translateY(-1px);
+      box-shadow: 0 5px 14px rgba(37, 211, 102, 0.32);
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 24px 16px;
+      }
+      .intro-headline {
+        font-size: 1.55rem;
+      }
+      .content-text {
+        font-size: 1rem;
+      }
+      .action-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+      .btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="wrapper">
-    <!-- Klick aufs Bild -> WhatsApp -->
+  <div class="container">
+    
+    <!-- Bild (Klick führt direkt zu WhatsApp) -->
     <a href="https://wa.me/41791014280?text=Hallo%20Severine,%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Beratung." 
        target="_blank" 
        rel="noopener noreferrer" 
        class="image-link" 
        title="Per WhatsApp kontaktieren">
-      <img src="PHOTO-2026-08-16-20-45-16.jpg" alt="Trauma Beratung – Severine Bräuer">
+      <img src="PHOTO-2026-08-16-20-45-16.jpg" alt="Severine Bräuer – Trauma Beratung">
     </a>
 
-    <!-- Bereich unter dem Bild -->
-    <div class="contact-container">
-      <div class="info-text">Für Terminanfragen und Erstgespräche erreichen Sie mich gerne per WhatsApp oder E-Mail:</div>
-
-      <a href="mailto:praxis@trauma-beratung.ch" class="mail-link" title="E-Mail schreiben">
-        praxis@trauma-beratung.ch
-      </a>
-
-      <a href="https://wa.me/41791014280?text=Hallo%20Severine,%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Beratung." 
-         target="_blank" 
-         rel="noopener noreferrer" 
-         class="whatsapp-link" 
-         title="Per WhatsApp schreiben">
-        WhatsApp: 079 101 42 80
-      </a>
+    <!-- Haupttext -->
+    <div class="intro-headline">
+      Schön, dass du den Weg auf meine Seite gefunden hast.
     </div>
+
+    <div class="content-text">
+      <p>Gerne erzähle ich dir ein wenig darüber, wer ich bin.</p>
+      
+      <p>Mein Name ist <strong>Severine Bräuer</strong>. Ich bin seit 2003 verheiratet und Mutter von drei Kindern sowie einem Pflegekind. Bis auf unser jüngstes Kind sind inzwischen alle erwachsen. Zu unserer Familie gehört ausserdem unser Pudel Alfi.</p>
+      
+      <p>Das Erwachsenwerden meiner Kinder hat auch in meinem eigenen Leben einen längeren, teilweise schwierigen Veränderungsprozess ausgelöst. Plötzlich begegneten mir Fragen wie: <em>Was bleibt von mir, wenn meine Rolle als Mutter sich verändert? Was kann ich gut? Was möchte ich? Und was traue ich mir zu?</em></p>
+      
+      <p>Es brauchte Zeit und Mut, diese Fragen auszuhalten. Dabei lernte ich, auch schmerzhaften Gefühlen Raum zu geben. Hinter ihnen zeigten sich Ängste, Selbstzweifel und alte innere Überzeugungen – aber ebenso neue Möglichkeiten und eine wachsende Verbindung zu mir selbst.</p>
+      
+      <p>Schon immer fiel es mir leicht, mit Menschen in einen tiefen und ehrlichen Austausch zu kommen. Wenn mir jemand seine Geschichte erzählt, nehme ich häufig unterschiedliche Ebenen und wiederkehrende Zusammenhänge wahr. Dadurch kann ein Raum entstehen, in dem Gedanken, Gefühle und innere Muster in Ruhe betrachtet und sortiert werden dürfen. Bei mir selbst gelingt mir das übrigens nicht immer – auch ich kenne die eigene „Betriebsblindheit“.</p>
+      
+      <p>Heute möchte ich Menschen dabei begleiten, sich ihrem Inneren behutsam zuzuwenden, persönliche Zusammenhänge besser zu verstehen und einen neuen Umgang mit schmerzhaften oder wiederkehrenden Hindernissen zu finden. Dabei bestimmst du selbst, was du anschauen möchtest und in welchem Tempo.</p>
+      
+      <p>Wenn du dich angesprochen fühlst und dir eine Begleitung durch mich vorstellen kannst, melde dich gerne für ein unverbindliches Kennenlerngespräch.</p>
+      
+      <div class="closing">
+        Herzlich<br>
+        Severine
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Kontakt-Sektion -->
+    <div class="contact-section">
+      <div class="contact-title">Terminanfragen & Kennenlerngespräch:</div>
+      <div class="action-buttons">
+        <a href="mailto:praxis@trauma-beratung.ch" class="btn btn-mail" title="E-Mail schreiben">
+          praxis@trauma-beratung.ch
+        </a>
+        <a href="https://wa.me/41791014280?text=Hallo%20Severine,%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Beratung." 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="btn btn-whatsapp" 
+           title="Per WhatsApp schreiben">
+          WhatsApp: 079 101 42 80
+        </a>
+      </div>
+    </div>
+
   </div>
 
 </body>
